@@ -10,9 +10,16 @@
     "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@apollo/client": "^3.7.1",
+    "@rtk-query/graphql-request-base-query": "^2.2.0",
+    "antd": "^4.23.6",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "next": "13.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.4"
   },
   "devDependencies": {
     "eslint": "8.26.0",
