@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import reloadSlice from './reloadSlice'
-const store = configureStore({
+import { configureStore } from '@reduxjs/toolkit';
+import reloadSlice from './reloadSlice';
+import modalReducer from './modalSlice';
+const store =  configureStore({
     reducer: {
-        reload: reloadSlice
+        reload: reloadSlice,
+        modal: modalReducer
     }
 })
 
