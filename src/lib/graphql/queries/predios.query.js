@@ -1,6 +1,6 @@
 import { gql } from 'graphql-tag';
 
-export const getPredios = gql`
+export const GET_PREDIOS = gql`
   query getPredios {
     predios {
       id
@@ -11,8 +11,8 @@ export const getPredios = gql`
     }
   }
 `;
-export const getPredio = gql`
-  query getPredios($id: uuid) {
+export const GET_PREDIO = gql`
+  query getPredio($id: uuid) {
     predios(where:{id:{_eq: $id}}) {
       id
       nombre

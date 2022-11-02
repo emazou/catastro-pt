@@ -28,11 +28,7 @@ a,
 }
 .flex-column {
   flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+
 }
 .header {
   height: 10vh;
@@ -48,7 +44,22 @@ a,
   text-align: center;
   background-color: #dff6ff43;
 }
-
+.predios{
+  width: 100%;
+  padding: 1rem 0 1rem 0;
+}
+.button{
+  background-color: #47B5FF;
+  border-radius: .3rem;
+  color: #224e6d;
+  font-weight: 500;
+  align-self: center;
+}
+.link-detail{
+  background-color: #06283d1f;
+  padding: .3rem;
+  border-radius: .2rem;
+}
 .footer {
   background-color: #06283d;
   color: #dff6ff;
@@ -59,7 +70,7 @@ a,
 .ping {
   --uib-size: 50px;
   --uib-speed: 1s;
-  --uib-color: #3950cf;
+  --uib-color: #06283d;
   position: relative;
   height: var(--uib-size);
   width: var(--uib-size);
