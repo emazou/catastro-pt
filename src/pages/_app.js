@@ -7,13 +7,13 @@ import client from '../lib/apollo_client';
 import store from 'redux/store';
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
         <MainLayout>
           <Component {...pageProps} />
         </MainLayout>
-      </ApolloProvider>
-    </Provider>
+      </Provider>
+    </ApolloProvider>
   )
 }
 
