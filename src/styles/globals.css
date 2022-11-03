@@ -10,6 +10,11 @@ a,
   color: inherit;
   text-decoration: none;
 }
+p,
+h3 {
+  margin: 0;
+  padding: 0;
+}
 .navbar {
   color: #dff6ff;
   font-weight: 500;
@@ -28,7 +33,6 @@ a,
 }
 .flex-column {
   flex-direction: column;
-
 }
 .header {
   height: 10vh;
@@ -36,7 +40,7 @@ a,
   background-color: #06283d;
 }
 .header img {
-  width: 3rem;
+  height: 8vh;
 }
 .container {
   min-height: 80vh;
@@ -44,21 +48,61 @@ a,
   text-align: center;
   background-color: #dff6ff43;
 }
-.predios{
+.predios {
   width: 100%;
   padding: 1rem 0 1rem 0;
 }
-.button{
-  background-color: #47B5FF;
-  border-radius: .3rem;
+.propietario {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  text-align: start;
+}
+.button {
+  background-color: #47b5ff;
+  border-radius: 0.3rem;
   color: #224e6d;
   font-weight: 500;
   align-self: center;
+  border: none;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
 }
-.link-detail{
+.button:hover {
+  background-color: #06283d;
+  color: #47b5ff;
+}
+.link-detail {
   background-color: #06283d1f;
-  padding: .3rem;
-  border-radius: .2rem;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.3rem;
+}
+.input {
+  padding: 0.3rem;
+  border: 1px solid #224e6d63;
+  border-radius: 0.5rem;
+}
+.fw {
+  font-weight: 500;
 }
 .footer {
   background-color: #06283d;
