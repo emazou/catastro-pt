@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reloadSlice from './reloadSlice';
-import modalReducer from './modalSlice';
-const store =  configureStore({
+import modalSlice from './modalSlice';
+import editSlice from './editSlice';
+import prediosAPI from './prediosAPI';
+const store = configureStore({
     reducer: {
-        reload: reloadSlice,
-        modal: modalReducer
+        [prediosAPI.reducerPath]: prediosAPI.reducer,
+        modal: modalSlice,
+        edit: editSlice
     }
 })
 
