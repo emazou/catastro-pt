@@ -1,85 +1,94 @@
 import React from 'react'
-import {
-    Button,
-    Form,
-    Input,
-    InputNumber,
-} from 'antd';
 import { useDispatch } from 'react-redux';
 import { editPredioOpenModal } from 'redux/modalSlice';
-import { useAddPredio } from 'hooks/useMutationPredio';
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
-export default function EditPredio({id, nombre, avaluo, municipio, departamento}) {
+import { toast } from 'react-hot-toast';
+import { useEditPredioMutation } from 'redux/prediosAPI';
+export default function EditPredio(props) {
+    const [nombre, setNombre] = React.useState(props.nombre);
+    const [avaluo, setAvaluo] = React.useState(props.avaluo);
+    const [municipio, setMunicipio] = React.useState(props.municipio);
+    const [departamento, setDepartamento] = React.useState(props.departamento);
+    const [noPredial, setNoPredial] = React.useState(props.noPredial);
     const dispatch = useDispatch();
-    const addPredio = useAddPredio()
-    const onFinish = (values) => {
-        addPredio({
-            variables: { ...values.predio}
-        })
-        dispatch(editPredioOpenModal)
+    const [updatePredio] = useEditPredioMutation();
+    const onFinish = (e) => {
+        e.preventDefault()
+        updatePredio({ id: props.id, municipio: municipio, departamento: departamento, avaluo: avaluo, nombre: nombre, noPredial: noPredial })
+            .then((res) =>{
+                if (res.data?.data) {
+                    props.fn()
+                    toast.success('Predio modificado')
+                } else {
+                    toast.error('No se pudo modificar el predio')
+                }
+            })
+            .catch((error) => console.log(error))
+        dispatch(editPredioOpenModal())
     };
     const formData = [
         {
-            name: 'id',
+            name: 'noPredial',
             label: 'Número predial',
             type: 'number',
-            message: 'Ingresa el número predial',
             key: 1,
-            defaultValue: id
+            defaultValue: noPredial,
+            fn: (e) => setNoPredial(e.target.value)
         },
         {
             name: 'avaluo',
             label: 'Avalúo',
             type: 'number',
-            message: 'Ingresa el avalúo',
             key: 2,
-            defaultValue: avaluo
+            defaultValue: avaluo,
+            fn: (e) => setAvaluo(e.target.value)
         },
         {
             name: 'nombre',
             label: 'Nombre',
             type: 'text',
-            message: 'Ingresa el nombre del predio',
             key: 3,
-            defaultValue: nombre
+            defaultValue: nombre,
+            fn: (e) => setNombre(e.target.value)
         },
         {
             name: 'departamento',
             label: 'Departamento',
             type: 'text',
-            message: 'Ingresa el departamento',
             key: 4,
-            defaultValue: departamento
+            defaultValue: departamento,
+            fn: (e) => setDepartamento(e.target.value)
         },
         {
             name: 'municipio',
             label: 'Municipio',
             type: 'text',
-            message: 'Ingresa el municipio',
             key: 5,
-            defaultValue: municipio
+            defaultValue: municipio,
+            fn: (e) => setMunicipio(e.target.value)
         }
     ]
     return (
-        <Form {...layout} name="predios" onFinish={onFinish}>
-            {
-                formData.map((item) => (
-                    <Form.Item key={item.key} name={['predio', item.name]} label={item.label} rules={[{ required: true, type: item.type, message: item.message, value:item.defaultValue }]}>
-                        {
-                            item.type === 'number' ? <InputNumber value={item.value} required style={{width:260}} /> : <Input value={item.value} required type='text' />
-                        }
-
-                    </Form.Item>
-                ))
-            }
-            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                <Button className='button' type="primary" htmlType="submit">
-                    Editar predio
-                </Button>
-            </Form.Item>
-        </Form>
+        <>
+            <form onSubmit={onFinish} className='form'>
+                {
+                    formData.map((item) => (
+                        <label className='label' key={item.key}>
+                            {item.label}
+                            <input
+                                className='input'
+                                type={item.type}
+                                name={item.name}
+                                defaultValue={item.defaultValue}
+                                required
+                                min={1}
+                                minLength={1}
+                                onChange={item.fn}
+                            />
+                        </label>
+                    ))
+                }
+                <button type='submit' className='button' >Enviar</button>
+            </form>
+        </>
     )
 }
