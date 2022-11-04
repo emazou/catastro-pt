@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { useRouter } from 'next/router';
 import { Descriptions } from 'antd';
 import { useGetPropietarioQuery } from 'features/propietariosAPI';
@@ -9,10 +9,15 @@ export default function Propietario() {
     const propietario = data?.data.propietarios[0]
     return (
         <div className='container flex-row'>
-            <Descriptions title="User Info">
-                <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
-                <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
-                <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
+            <Descriptions title="Información del propietario">
+                {
+                    propietario?.map((item)=>{
+                        
+                    })
+                }
+                <Descriptions.Item label="Nombres">{propietario.nombres}</Descriptions.Item>
+                <Descriptions.Item label="Apellidos">{propietario.apellidos}</Descriptions.Item>
+                <Descriptions.Item label="Correo electrónico">{}</Descriptions.Item>
                 <Descriptions.Item label="Remark">empty</Descriptions.Item>
                 <Descriptions.Item label="Address">
                     No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
@@ -21,3 +26,4 @@ export default function Propietario() {
         </div>
     )
 }
+ */
