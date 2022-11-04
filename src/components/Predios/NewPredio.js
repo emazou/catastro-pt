@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { newPredioOpenModal } from 'redux/modalSlice';
-import { useAddPredioMutation } from 'redux/prediosAPI';
+import { newPredioOpenModal } from 'features/modalSlice';
+import { useAddPredioMutation } from 'features/prediosAPI';
 import { toast } from 'react-hot-toast';
 export default function NewPredio({ fn }) {
     const formRef = React.useRef()
@@ -28,7 +28,6 @@ export default function NewPredio({ fn }) {
             name: 'noPredial',
             label: 'Número predial',
             type: 'number',
-            message: 'Ingresa el número predial',
             key: 1,
             placeholder: '111111111'
         },
@@ -36,7 +35,6 @@ export default function NewPredio({ fn }) {
             name: 'avaluo',
             label: 'Avalúo',
             type: 'number',
-            message: 'Ingresa el avalúo',
             key: 2,
             placeholder: '1000000'
         },
@@ -44,7 +42,6 @@ export default function NewPredio({ fn }) {
             name: 'nombre',
             label: 'Nombre',
             type: 'text',
-            message: 'Ingresa el nombre del predio',
             key: 3,
             placeholder: 'Nombre del predio'
         },
@@ -52,7 +49,6 @@ export default function NewPredio({ fn }) {
             name: 'departamento',
             label: 'Departamento',
             type: 'text',
-            message: 'Ingresa el departamento',
             key: 4,
             placeholder: 'Departamento'
         },
@@ -60,7 +56,6 @@ export default function NewPredio({ fn }) {
             name: 'municipio',
             label: 'Municipio',
             type: 'text',
-            message: 'Ingresa el municipio',
             key: 5,
             placeholder: 'Municipio'
         }
