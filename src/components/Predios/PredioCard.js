@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, Modal } from 'antd';
 import { ArrowRightOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import { useDeletePredioMutation } from 'redux/prediosAPI';
+import { useDeletePredioMutation } from 'features/prediosAPI';
 import { toast } from 'react-hot-toast';
 const { confirm } = Modal;
 export default function PredioCard({ avaluo, nombre, departamento, municipio, id, noPredial, fn }) {
