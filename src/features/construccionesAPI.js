@@ -1,8 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+const headers = {
+  "content-type": "application/json",
+  "x-hasura-admin-secret": process.env.NEXT_PUBLIC_ADMIN_SECRET
+}
 export const construccionesAPI = createApi({
   reducerPath: 'construccionesAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://catastro-pt.hasura.app/v1/graphql'
+    baseUrl: process.env.NEXT_PUBLIC_URL_API
   }),
   tagTypes: ['Construcciones', 'Predio'],
   endpoints: (builder) => ({
@@ -23,10 +27,7 @@ export const construccionesAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       }),
       providesTags: ['Construcciones'],
     }),
@@ -48,18 +49,15 @@ export const construccionesAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       }),
       providesTags: ['Predio'],
     }),
     addConstruccion: builder.mutation({
-      query: ({ numeropisos, area, tipoconstruccion, direccion, idpredio }) => ({
+      query: (variables) => ({
         method: 'POST',
         body: JSON.stringify({
-          variables: { numeropisos: numeropisos, area: area, tipoconstruccion: tipoconstruccion, direccion: direccion, idpredio: idpredio },
+          variables: { ...variables },
           query: `
                     mutation addConstruccion(
                         $numeropisos: Int!
@@ -84,18 +82,15 @@ export const construccionesAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       }),
       invalidatesTags: ['Construcciones'],
     }),
     editConstruccion: builder.mutation({
-      query: ({ numeropisos, area, tipoconstruccion, direccion, id }) => ({
+      query: (variables) => ({
         method: 'POST',
         body: JSON.stringify({
-          variables: { id: id, numeropisos: numeropisos, area: area, tipoconstruccion: tipoconstruccion, direccion: direccion },
+          variables: { ...variables },
           query: `
                     mutation updateConstruccion(
                         $numeropisos: Int!
@@ -122,10 +117,7 @@ export const construccionesAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       }),
       invalidatesTags: ['Predio'],
     }),
@@ -144,10 +136,7 @@ export const construccionesAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       })
     })
   })

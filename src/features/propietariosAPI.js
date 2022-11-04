@@ -1,17 +1,21 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+const headers = {
+  "content-type": "application/json",
+  "x-hasura-admin-secret": process.env.NEXT_PUBLIC_ADMIN_SECRET
+}
 export const propietariosAPI = createApi({
-    reducerPath: 'propietariosAPI',
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'https://catastro-pt.hasura.app/v1/graphql'
-    }),
-    tagTypes: ['propietarios', 'propietario'],
-    endpoints: (builder) => ({
-        getPropietarios: builder.query({
-            query: (id) => ({
-                method: 'POST',
-                body: JSON.stringify({
-                    variables: { idPredio: id },
-                    query: `
+  reducerPath: 'propietariosAPI',
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_URL_API
+  }),
+  tagTypes: ['propietarios', 'propietario'],
+  endpoints: (builder) => ({
+    getPropietarios: builder.query({
+      query: (id) => ({
+        method: 'POST',
+        body: JSON.stringify({
+          variables: { idPredio: id },
+          query: `
                     query getPropietarios($idPredio: uuid!) {
                         propietarios(where:{idpredio:{_eq:$idPredio}}) {
                           id
@@ -28,20 +32,17 @@ export const propietariosAPI = createApi({
                         }
                       }
                     `
-                }),
-                headers: {
-                    "content-type": "application/json",
-                    "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-                }
-            }),
-            providesTags: ['propietarios'],
         }),
-        getPropietario: builder.query({
-            query: (id) => ({
-                method: 'POST',
-                body: JSON.stringify({
-                    variables: { id: id },
-                    query: `
+        headers: {...headers}
+      }),
+      providesTags: ['propietarios'],
+    }),
+    getPropietario: builder.query({
+      query: (id) => ({
+        method: 'POST',
+        body: JSON.stringify({
+          variables: { id: id },
+          query: `
                     query getpropietario($id: uuid!) {
                         propietarios(where:{id:{_eq: $id}}) {
                             tipopersona
@@ -58,32 +59,17 @@ export const propietariosAPI = createApi({
                         }
                       }
                     `
-                }),
-                headers: {
-                    "content-type": "application/json",
-                    "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-                }
-            }),
-            providesTags: ['propietario'],
         }),
-        addPropietario: builder.mutation({
-            query: ({ tipopersona, nombres, apellidos, email, tipodocumento, nodocumento, nit, razonsocial, telefono, direccion, idpredio }) => ({
-                method: 'POST',
-                body: JSON.stringify({
-                    variables: {
-                        tipopersona: tipopersona,
-                        nombres: nombres,
-                        apellidos: apellidos,
-                        email: email,
-                        tipodocumento: tipodocumento,
-                        nodocumento: nodocumento,
-                        nit: nit,
-                        razonsocial: razonsocial,
-                        telefono: telefono,
-                        direccion: direccion,
-                        idpredio: idpredio
-                    },
-                    query: `
+        headers: {...headers}
+      }),
+      providesTags: ['propietario'],
+    }),
+    addPropietario: builder.mutation({
+      query: (variables) => ({
+        method: 'POST',
+        body: JSON.stringify({
+          variables: { ...variables },
+          query: `
                     mutation addpropietario(
                         $tipopersona: String!
                         $nombres: String!
@@ -118,20 +104,17 @@ export const propietariosAPI = createApi({
                         }
                       }
                     `
-                }),
-                headers: {
-                    "content-type": "application/json",
-                    "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-                }
-            }),
-            invalidatesTags: ['propietarios'],
         }),
-        editPropietario: builder.mutation({
-            query: (variables) => ({
-                method: 'POST',
-                body: JSON.stringify({
-                    variables: { ...variables },
-                    query: `
+        headers: {...headers}
+      }),
+      invalidatesTags: ['propietarios'],
+    }),
+    editPropietario: builder.mutation({
+      query: (variables) => ({
+        method: 'POST',
+        body: JSON.stringify({
+          variables: { ...variables },
+          query: `
                     mutation updatepropietario(
                         $id: uuid!
                         $nombres: String!
@@ -164,20 +147,17 @@ export const propietariosAPI = createApi({
                         }
                       }
                     `
-                }),
-                headers: {
-                    "content-type": "application/json",
-                    "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-                }
-            }),
-            invalidatesTags: ['propietario'],
         }),
-        deletePropietario: builder.mutation({
-            query: (id) => ({
-                method: 'POST',
-                body: JSON.stringify({
-                    variables: { id: id },
-                    query: `
+        headers: {...headers}
+      }),
+      invalidatesTags: ['propietario'],
+    }),
+    deletePropietario: builder.mutation({
+      query: (id) => ({
+        method: 'POST',
+        body: JSON.stringify({
+          variables: { id: id },
+          query: `
                     mutation deletePropietario($id: uuid!) {
                         delete_propietarios(where: { id: { _eq: $id } }) {
                           returning{
@@ -186,14 +166,11 @@ export const propietariosAPI = createApi({
                         }
                       }
                     `
-                }),
-                headers: {
-                    "content-type": "application/json",
-                    "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-                }
-            })
-        })
+        }),
+        headers: {...headers}
+      })
     })
+  })
 })
 
 export default propietariosAPI;
