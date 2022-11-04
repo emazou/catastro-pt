@@ -58,7 +58,6 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  width: 100%;
   padding: 1rem;
   background-color: white;
   text-align: start;
@@ -96,10 +95,14 @@ h3 {
   gap: 0.5rem;
   padding: 0.3rem;
 }
-.input {
+.input, .select {
   padding: 0.3rem;
   border: 1px solid #224e6d63;
   border-radius: 0.5rem;
+  outline: none;
+}
+.select{
+  cursor: pointer;
 }
 .fw {
   font-weight: 500;
