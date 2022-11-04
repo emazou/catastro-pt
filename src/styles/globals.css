@@ -74,7 +74,7 @@ h3 {
 }
 .button:hover {
   background-color: #06283d;
-  color: #47b5ff;
+  color: #dff6ff;
 }
 .link-detail {
   background-color: #06283d1f;
@@ -107,12 +107,42 @@ h3 {
 .fw {
   font-weight: 500;
 }
+.descriptions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 2rem;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+.buttons-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
 .footer {
   background-color: #06283d;
   color: #dff6ff;
   font-weight: 500;
+  min-height: 10vh;
 }
-
+.bton-delete, .bton-edit{
+  border: none;
+  cursor: pointer;
+  padding: .3rem .5rem;
+  border-radius: .3rem;
+  font-weight: 500;
+}
+.bton-delete{
+  background: none;
+  border: 1px solid #06283d65;
+}
+.bton-delete:hover{
+  background-color: #633f4a;
+  color: #f5e7ec;
+}
 /* --------------------------------------- */
 .ping {
   --uib-size: 50px;
@@ -151,5 +181,10 @@ h3 {
   100% {
     transform: scale(1);
     opacity: 0;
+  }
+}
+@media screen and (min-width:1440px) {
+  .descriptions{
+    width: 85%;
   }
 }
