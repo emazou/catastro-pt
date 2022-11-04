@@ -15,7 +15,7 @@ export default function EditConstruccion(props) {
     const dispatch = useDispatch();
     const onFinish = (e) => {
         e.preventDefault();
-        editConstruccion({ id: props.id, numeropisos: numeropisos, area: area, tipoconstruccion: tipoconstruccion, direccion: direccion })
+        editConstruccion({ id: props.id, numeropisos, area, tipoconstruccion, direccion })
             .then((res) => {
                 if (res.data?.data) {
                     refetch()
