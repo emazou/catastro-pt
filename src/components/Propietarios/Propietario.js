@@ -2,10 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { UserOutlined, ArrowRightOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { Avatar, Modal } from 'antd';
-import { useDeletePropietario } from 'hooks/useMutationPropietario';
+import { useDeletePropietarioMutation } from 'features/propietariosAPI';
 const { confirm } = Modal;
-export default function Propietario({ id, nombres, apellidos, tipoPersona, email, nodocumento, nit, tipodocumento, razonsocial }) {
-    const [deletePropietario, { data }] = useDeletePropietario();
+import { toast } from 'react-hot-toast';
+export default function Propietario({ id, nombres, apellidos, tipoPersona, email, nodocumento, nit, tipodocumento, razonsocial, fn }) {
+    const [deletePropietario] = useDeletePropietarioMutation();
     const showPromiseConfirm = () => {
         confirm({
             title: 'Quieres eliminar este propietario?',
@@ -13,14 +14,16 @@ export default function Propietario({ id, nombres, apellidos, tipoPersona, email
             okText: 'Eliminar',
             cancelText: 'Cancelar',
             onOk() {
-                deletePropietario(
-                    {
-                        variables: {
-                            id: id
+                deletePropietario(id)
+                    .then((res) => {
+                        if (res.data?.data) {
+                            fn()
+                            toast.success(`Se eliminó el propietario`)
+                        } else {
+                            toast.error('No se pudo eliminar el propietario')
                         }
-                    },
-                )
-
+                    })
+                    .catch((error) => console.log(error))
             },
             onCancel() { },
         });
