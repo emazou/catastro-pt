@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { editPredioOpenModal } from 'features/modalSlice';
+import { editOpenModal } from 'features/modalSlice';
 import { toast } from 'react-hot-toast';
 import { useEditPredioMutation } from 'features/prediosAPI';
 export default function EditPredio(props) {
@@ -23,7 +23,7 @@ export default function EditPredio(props) {
                 }
             })
             .catch((error) => console.log(error))
-        dispatch(editPredioOpenModal())
+        dispatch(editOpenModal())
     };
     const formData = [
         {

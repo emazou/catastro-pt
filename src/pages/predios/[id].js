@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Card, Modal } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import EditPredio from '@components/Predios/EditPredio';
-import { editPredioOpenModal } from 'features/modalSlice';
+import { editOpenModal } from 'features/modalSlice';
 import { editPredio } from 'features/editSlice';
 import Propietarios from '@components/Propietarios/Propietarios';
 import { useGetPredioQuery } from 'features/prediosAPI';
@@ -29,10 +29,9 @@ export default function PredioPage() {
                         actions={[
                             <EditOutlined key="edit"
                                 onClick={() => {
-                                    dispatch(editPredioOpenModal())
+                                    dispatch(editOpenModal())
                                     dispatch(editPredio({ avaluo: predio?.avaluo, nombre: predio?.nombre, departamento: predio?.departamento, municipio: predio?.municipio, id: id, noPredial: predio.no_predial }))
                                 }}
-
                             />
                         ]}
                     >
@@ -41,7 +40,7 @@ export default function PredioPage() {
                         <h4>Avaluo: ${predio?.avaluo}</h4>
                     </Card>
             }
-            <Modal title="Formulario de edición de predios" footer={null} open={isOpenModal} onCancel={() => dispatch(editPredioOpenModal())}>
+            <Modal title="Formulario de edición de predios" footer={null} open={isOpenModal} onCancel={() => dispatch(editOpenModal())}>
                 <EditPredio fn={() => refetch()} id={id} nombre={predio?.nombre} municipio={predio?.municipio} departamento={predio?.departamento} avaluo={predio?.avaluo} noPredial={predio?.nopredial} />
             </Modal>
             <Propietarios id={id} />

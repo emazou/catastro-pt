@@ -70,17 +70,16 @@ export default function NewPropietario({ fn, id }) {
     const [tipo, setTipo] = React.useState('');
     const formNewRef = React.useRef();
     const dispatch = useDispatch();
-    const [addPropietario] = useAddPropietarioMutation()
+    const [addPropietario] = useAddPropietarioMutation();
     const onFinish = (e) => {
         e.preventDefault();
-        const body = Object.fromEntries(new FormData(formNewRef.current))
-        let nullable = {}
+        const body = Object.fromEntries(new FormData(formNewRef.current));
+        let nullable = {};
         if (tipo === "Natural") {
-            nullable = { nit: null, razonsocial: null }
+            nullable = { nit: null, razonsocial: null };
         } else {
-            nullable = { tipodocumento: null, nodocumento: null, apellidos: null, nombres: null }
+            nullable = { tipodocumento: null, nodocumento: null, apellidos: null, nombres: null };
         }
-        console.log({ ...body, ...nullable, idpredio:id })
         addPropietario({ ...body, ...nullable, idpredio:id })
             .then((res) => {
                 if (res.data?.data) {
@@ -97,7 +96,7 @@ export default function NewPropietario({ fn, id }) {
     };
     return (
         <form ref={formNewRef} onSubmit={onFinish} className='form' >
-            <select className='select' name='tipopersona' defaultValue={'tipo'} onChange={(e) => setTipo(e.target.value) } required>
+            <select className='select' name='tipopersona' defaultValue='tipo' onChange={(e) => setTipo(e.target.value) } required>
                 <option disabled value="tipo" selected>Tipo de persona</option>
                 <option value='Natural'>Natural</option>
                 <option value='Jurídica'>Jurídica</option>
@@ -105,9 +104,9 @@ export default function NewPropietario({ fn, id }) {
             {
                 tipo === "Natural"
                 &&
-                <select className='select' name='tipodocumento' defaultValue={'Select'} required>
+                <select className='select' name='tipodocumento' defaultValue='Select' required >
                     <option disabled value="Select" selected>Tipo de documento</option>
-                    <option value='CC'>Cédula de ciudadanía</option>
+                    <option value='Cédula de ciudadanía'>Cédula de ciudadanía</option>
                     <option value='DNI'>DNI</option>
                 </select>
             }
