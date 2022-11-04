@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { editPredioOpenModal } from 'redux/modalSlice';
+import { editPredioOpenModal } from 'features/modalSlice';
 import { toast } from 'react-hot-toast';
-import { useEditPredioMutation } from 'redux/prediosAPI';
+import { useEditPredioMutation } from 'features/prediosAPI';
 export default function EditPredio(props) {
     const [nombre, setNombre] = React.useState(props.nombre);
     const [avaluo, setAvaluo] = React.useState(props.avaluo);
