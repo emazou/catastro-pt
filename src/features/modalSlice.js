@@ -7,7 +7,9 @@ export const modalSlice = createSlice({
     isOpenEditModal: false,
     isOpenNewPropietarioModal: false,
     isOpenNewConstruccionModal: false,
-    isOpenEditConstruccionModal: false
+    isOpenNewTerrenoModal: false,
+    isOpenEditConstruccionModal: false,
+    isOpenEditTerrenoModal: false
   },
   reducers: {
     newPredioOpenModal: (state) => {
@@ -25,9 +27,15 @@ export const modalSlice = createSlice({
     editConstruccionOpenModal: (state) => {
       state.isOpenEditConstruccionModal = !state.isOpenEditConstruccionModal;
     },
+    newTerrenoOpenModal: (state) => {
+      state.isOpenNewTerrenoModal = !state.isOpenNewTerrenoModal;
+    },
+    editTerrenoOpenModal: (state) => {
+      state.isOpenEditTerrenoModal = !state.isOpenEditTerrenoModal;
+    },
   },
 });
 
-export const { newPredioOpenModal, editOpenModal, newPropietarioOpenModal, newConstruccionOpenModal, editConstruccionOpenModal } = modalSlice.actions
+export const { newPredioOpenModal, editOpenModal, newPropietarioOpenModal, newConstruccionOpenModal, editConstruccionOpenModal, newTerrenoOpenModal, editTerrenoOpenModal } = modalSlice.actions
 
 export default modalSlice.reducer
