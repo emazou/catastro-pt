@@ -81,7 +81,7 @@ export const propietariosAPI = createApi({
                         razonsocial: razonsocial,
                         telefono: telefono,
                         direccion: direccion,
-                        idpredio:idpredio
+                        idpredio: idpredio
                     },
                     query: `
                     mutation addpropietario(
@@ -127,38 +127,39 @@ export const propietariosAPI = createApi({
             invalidatesTags: ['propietarios'],
         }),
         editPropietario: builder.mutation({
-            query: ({ id, nombre, municipio, departamento, avaluo, noPredial }) => ({
+            query: (variables) => ({
                 method: 'POST',
                 body: JSON.stringify({
-                    variables: { id: id, noPredial: noPredial, nombre: nombre, municipio: municipio, departamento: departamento, avaluo: avaluo },
+                    variables: { ...variables },
                     query: `
                     mutation updatepropietario(
                         $id: uuid!
-                        $nombre: String!
-                        $municipio: String!
-                        $departamento: String!
-                        $avaluo: numeric!
-                        $noPredial: bigint!
+                        $nombres: String!
+                        $apellidos: String!
+                        $razonsocial: String!
+                        $nodocumento: bigint!
+                        $direccion: String!
+                        $nit: bigint!
+                        $email: String!
+                        $telefono: bigint!
                       ){
                         update_propietarios(
                           where:{
                             id:{_eq: $id}
                           },
                           _set:{
-                            nopredial:$noPredial,
-                            nombre:$nombre,
-                            municipio:$municipio,
-                            departamento:$departamento,
-                            avaluo:$avaluo,
+                            nombres: $nombres,
+                            apellidos: $apellidos,
+                            razonsocial: $razonsocial,
+                            nodocumento: $nodocumento,
+                            direccion: $direccion,
+                            nit: $nit,
+                            email: $email,
+                            telefono: $telefono
                           }
                         ){
                           returning{
                             id
-                            nombre
-                            avaluo
-                            municipio
-                            departamento
-                            nopredial
                           }
                         }
                       }
