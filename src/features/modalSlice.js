@@ -11,7 +11,7 @@ export const modalSlice = createSlice({
     newPredioOpenModal: (state) => {
       state.isOpenModal = !state.isOpenModal;
     },
-    editPredioOpenModal: (state) => {
+    editOpenModal: (state) => {
       state.isOpenEditModal = !state.isOpenEditModal;
     },
     newPropietarioOpenModal: (state) => {
@@ -20,6 +20,6 @@ export const modalSlice = createSlice({
   },
 });
 
-export const { newPredioOpenModal, editPredioOpenModal, newPropietarioOpenModal } = modalSlice.actions
+export const { newPredioOpenModal, editOpenModal, newPropietarioOpenModal } = modalSlice.actions
 
 export default modalSlice.reducer
