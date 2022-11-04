@@ -1,24 +1,24 @@
 import React from 'react';
 import PredioCard from '@components/Predios/PredioCard';
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import NewPredio from '@components/Predios/NewPredio';
 import { useDispatch, useSelector } from 'react-redux';
-import { newPredioOpenModal } from 'redux/modalSlice';
-import { useGetPrediosQuery } from 'redux/prediosAPI';
+import { newPredioOpenModal } from 'features/modalSlice';
+import { useGetPrediosQuery } from 'features/prediosAPI';
 export default function properties() {
     const isOpenModal = useSelector((state) => state.modal.isOpenModal)
     const dispatch = useDispatch()
-    const { data, loading, refetch } = useGetPrediosQuery()
+    const { data, refetch } = useGetPrediosQuery()
     return (
         <div className='container flex-columns'>
-            <Button className='button' onClick={() => dispatch(newPredioOpenModal())}>
+            <button className='button' onClick={() => dispatch(newPredioOpenModal())}>
                 Agregar predio
                 <PlusCircleOutlined />
-            </Button>
+            </button>
             <div className='predios flex-row'>
                 {
-                    loading && <div className="ping"></div>
+                    !data && <div className="ping"></div>
                 }
                 {
                     data && data?.data.predios.map(predio => (

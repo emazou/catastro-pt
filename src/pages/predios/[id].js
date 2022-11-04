@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import { Card, Modal } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import EditPredio from '@components/Predios/EditPredio';
-import { editPredioOpenModal } from 'redux/modalSlice';
-import { editPredio } from 'redux/editSlice';
+import { editPredioOpenModal } from 'features/modalSlice';
+import { editPredio } from 'features/editSlice';
 import Propietarios from '@components/Propietarios/Propietarios';
-import { useGetPredioQuery } from 'redux/prediosAPI';
+import { useGetPredioQuery } from 'features/prediosAPI';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function PredioPage() {
@@ -14,12 +14,12 @@ export default function PredioPage() {
     const { id } = router.query
     const dispatch = useDispatch();
     const isOpenModal = useSelector((state) => state.modal.isOpenEditModal);
-    const { loading, data, refetch } = useGetPredioQuery(id)
+    const { data, refetch } = useGetPredioQuery(id)
     const predio = data?.data.predios[0]
     return (
         <div className='container flex-column'>
             {
-                loading
+                !data
                     ?
                     <div className="ping"></div>
                     :
