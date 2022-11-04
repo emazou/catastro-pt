@@ -14,7 +14,7 @@ export default function Propietario() {
     const router = useRouter()
     const { id } = router.query
     const { data, loading } = useGetPropietarioQuery(id)
-    const propietario = data?.data.propietarios[0]
+    const propietario = data?.data?.propietarios[0]
     const [deletePropietario] = useDeletePropietarioMutation();
     const { refetch } = useGetPropietariosQuery(propietario?.idpredio)
     const showPromiseConfirm = () => {
@@ -44,8 +44,8 @@ export default function Propietario() {
             {
                 loading ? <div className="ping"></div>
                     :
-                    <>
-                        <Descriptions title="Información del propietario" labelStyle={{ fontWeight: 500, marginInline: '.3rem' }} className={'descriptions'}>
+                    <div className='propietario-detail'>
+                        <Descriptions title="Información del propietario" labelStyle={{ fontWeight: 500, marginInline: '.3rem'}} className={'descriptions'}>
                             <Descriptions.Item label="Tipo de persona">{propietario?.tipopersona}</Descriptions.Item>
                             {
                                 propietario?.tipopersona === "Natural" ?
@@ -65,7 +65,7 @@ export default function Propietario() {
                             <Descriptions.Item label="Dirección">{propietario?.direccion}</Descriptions.Item>
                             <Descriptions.Item label="Teléfono">{propietario?.telefono}</Descriptions.Item>
                         </Descriptions>
-                    </>
+                    </div>
             }
             <div className='buttons-container'>
                 <button

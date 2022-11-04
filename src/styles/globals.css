@@ -44,7 +44,7 @@ h3 {
 }
 .container {
   min-height: 80vh;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
   background-color: #dff6ff43;
 }
@@ -61,6 +61,7 @@ h3 {
   padding: 1rem;
   background-color: white;
   text-align: start;
+  border-radius: 0.3rem;
 }
 .button {
   background-color: #47b5ff;
@@ -95,19 +96,18 @@ h3 {
   gap: 0.5rem;
   padding: 0.3rem;
 }
-.input, .select {
+.input,
+.select {
   padding: 0.3rem;
   border: 1px solid #224e6d63;
   border-radius: 0.5rem;
   outline: none;
 }
-.select{
+.select {
   cursor: pointer;
 }
-.fw {
-  font-weight: 500;
-}
-.descriptions{
+
+.descriptions {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,11 +116,30 @@ h3 {
   gap: 1rem;
   padding: 0 2rem;
 }
-.buttons-container{
+.buttons-container {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.construccion-container {
+  gap: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+.item-construccion{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.propietario-detail {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.3rem;
+  padding: 1rem;
 }
 .footer {
   background-color: #06283d;
@@ -128,20 +147,24 @@ h3 {
   font-weight: 500;
   min-height: 10vh;
 }
-.bton-delete, .bton-edit{
+.bton-delete,
+.bton-edit {
   border: none;
   cursor: pointer;
-  padding: .3rem .5rem;
-  border-radius: .3rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
   font-weight: 500;
 }
-.bton-delete{
+.bton-delete {
   background: none;
   border: 1px solid #06283d65;
 }
-.bton-delete:hover{
+.bton-delete:hover {
   background-color: #633f4a;
   color: #f5e7ec;
+}
+.fw {
+  font-weight: 500;
 }
 /* --------------------------------------- */
 .ping {
@@ -183,8 +206,8 @@ h3 {
     opacity: 0;
   }
 }
-@media screen and (min-width:1440px) {
-  .descriptions{
+@media screen and (min-width: 1440px) {
+  .descriptions {
     width: 85%;
   }
 }

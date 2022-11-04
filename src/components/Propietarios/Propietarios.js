@@ -16,7 +16,7 @@ export default function Propietarios({ id }) {
                 data && <h2>Propietarios</h2>
             }
             {
-                (data && data?.data.propietarios.length === 0) && <p>Este predio no tiene propietarios</p>
+                (data && data?.data?.propietarios.length === 0) && <p>Este predio no tiene propietarios</p>
             }
             <button
                 type="button"

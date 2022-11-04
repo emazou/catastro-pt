@@ -8,6 +8,7 @@ import { editPredio } from 'features/editSlice';
 import Propietarios from '@components/Propietarios/Propietarios';
 import { useGetPredioQuery } from 'features/prediosAPI';
 import { useDispatch, useSelector } from 'react-redux';
+import Construcciones from '@components/Construcciones/Construcciones';
 
 export default function PredioPage() {
     const router = useRouter()
@@ -44,6 +45,7 @@ export default function PredioPage() {
                 <EditPredio fn={() => refetch()} id={id} nombre={predio?.nombre} municipio={predio?.municipio} departamento={predio?.departamento} avaluo={predio?.avaluo} noPredial={predio?.nopredial} />
             </Modal>
             <Propietarios id={id} />
+            <Construcciones id={id} />
         </div>
     )
 }

@@ -97,7 +97,7 @@ export default function NewPropietario({ fn, id }) {
     return (
         <form ref={formNewRef} onSubmit={onFinish} className='form' >
             <select className='select' name='tipopersona' defaultValue='tipo' onChange={(e) => setTipo(e.target.value) } required>
-                <option disabled value="tipo" selected>Tipo de persona</option>
+                <option disabled value="tipo">Tipo de persona</option>
                 <option value='Natural'>Natural</option>
                 <option value='Jurídica'>Jurídica</option>
             </select>
