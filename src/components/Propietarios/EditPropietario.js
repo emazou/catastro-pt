@@ -90,7 +90,7 @@ export default function EditPropietario(props) {
         }
     ]
     const submit = () => {
-        editPropietario({ id: props.id, apellidos: apellidos, nombres: nombres, nodocumento: nodocumento, razonsocial: razonsocial, direccion: direccion, telefono: telefono, email: email, nit: nit })
+        editPropietario({ id: props.id, apellidos, nombres, nodocumento, razonsocial, direccion, telefono, email, nit })
             .then((res) => {
                 if (res.data?.data) {
                     refetch()

@@ -4,11 +4,11 @@ import { Card, Modal } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import EditPredio from '@components/Predios/EditPredio';
 import { editOpenModal } from 'features/modalSlice';
-import { editPredio } from 'features/editSlice';
 import Propietarios from '@components/Propietarios/Propietarios';
 import { useGetPredioQuery } from 'features/prediosAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import Construcciones from '@components/Construcciones/Construcciones';
+import Terreno from '@components/Terreno/Terreno';
 
 export default function PredioPage() {
     const router = useRouter()
@@ -16,7 +16,7 @@ export default function PredioPage() {
     const dispatch = useDispatch();
     const isOpenModal = useSelector((state) => state.modal.isOpenEditModal);
     const { data, refetch } = useGetPredioQuery(id)
-    const predio = data?.data.predios[0]
+    const predio = data?.data?.predios[0]
     return (
         <div className='container flex-column'>
             {
@@ -30,9 +30,7 @@ export default function PredioPage() {
                         actions={[
                             <EditOutlined key="edit"
                                 onClick={() => {
-                                    dispatch(editOpenModal())
-                                    dispatch(editPredio({ avaluo: predio?.avaluo, nombre: predio?.nombre, departamento: predio?.departamento, municipio: predio?.municipio, id: id, noPredial: predio.no_predial }))
-                                }}
+                                    dispatch(editOpenModal())}}
                             />
                         ]}
                     >
@@ -44,8 +42,15 @@ export default function PredioPage() {
             <Modal title="Formulario de edición de predios" footer={null} open={isOpenModal} onCancel={() => dispatch(editOpenModal())}>
                 <EditPredio fn={() => refetch()} id={id} nombre={predio?.nombre} municipio={predio?.municipio} departamento={predio?.departamento} avaluo={predio?.avaluo} noPredial={predio?.nopredial} />
             </Modal>
-            <Propietarios id={id} />
-            <Construcciones id={id} />
+            {
+                data && (
+                    <>
+                        <Propietarios id={id} />
+                        <Construcciones id={id} />
+                        <Terreno id={id} />
+                    </>
+                )
+            }
         </div>
     )
 }

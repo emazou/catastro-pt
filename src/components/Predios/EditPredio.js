@@ -13,7 +13,7 @@ export default function EditPredio(props) {
     const [updatePredio] = useEditPredioMutation();
     const onFinish = (e) => {
         e.preventDefault()
-        updatePredio({ id: props.id, municipio: municipio, departamento: departamento, avaluo: avaluo, nombre: nombre, noPredial: noPredial })
+        updatePredio({ id: props.id, municipio, departamento, avaluo, nombre, noPredial })
             .then((res) =>{
                 if (res.data?.data) {
                     props.fn()
