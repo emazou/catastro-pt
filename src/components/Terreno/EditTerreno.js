@@ -28,7 +28,7 @@ export default function EditTerreno(props) {
     return (
         <form onSubmit={onFinish} className='form'>
             <select className='select' name='tipoterreno' defaultValue={tipoterreno} onChange={(e) => setTipoterreno(e.target.value)} >
-                <option disabled value={tipoterreno} >Tipo de terreno</option>
+                <option disabled value={tipoterreno} selected>Tipo de terreno</option>
                 <option value='Rural'>Rural</option>
                 <option value='Urbano'>Urbano</option>
             </select>

@@ -7,14 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { newPredioOpenModal } from 'features/modalSlice';
 import { useGetPrediosQuery } from 'features/prediosAPI';
 export default function properties() {
-    const isOpenModal = useSelector((state) => state.modal.isOpenModal)
-    const dispatch = useDispatch()
+    const isOpenModal = useSelector((state) => state.modal.isOpenModal);
+    const dispatch = useDispatch();
     const { data, refetch } = useGetPrediosQuery()
     return (
         <div className='container flex-columns'>
             <button className='button' onClick={() => dispatch(newPredioOpenModal())}>
-                Agregar predio
-                <PlusCircleOutlined />
+                Agregar predio <PlusCircleOutlined style={{marginleft:'1rem'}} />
             </button>
             <div className='predios flex-row'>
                 {
@@ -35,7 +34,7 @@ export default function properties() {
                     ))
                 }
                 {
-                    data?.data.predios.length === 0 && <p>Ups, no hay predios para ver</p>
+                    data?.data.predios.length === 0 && <p>Ups, no hay predios.</p>
                 }
             </div>
             <Modal title="Formulario de inscripción de predios" footer={null} open={isOpenModal} onCancel={() => dispatch(newPredioOpenModal())}>

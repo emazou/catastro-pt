@@ -43,7 +43,7 @@ export default function ConstruccionPage() {
     return (
         <div className='container flex-column'>
             <Construccion fn={() => refetch()} id={id} area={construccion?.area} numeropisos={construccion?.numeropisos} tipoconstruccion={construccion?.tipoconstruccion} direccion={construccion?.direccion} />
-            <div>
+            <div className='flex-row'>
                 <button
                     type="button"
                     className='bton-delete'

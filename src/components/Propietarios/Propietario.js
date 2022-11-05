@@ -4,7 +4,7 @@ import { UserOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
 export default function Propietario({ id, nombres, apellidos, tipoPersona, email, nodocumento, nit, tipodocumento, razonsocial, fn }) {
     return (
-        <div className='propietario'>
+        <div className='propietario width-100'>
             <Avatar icon={<UserOutlined />} />
             <div>
                 {
@@ -26,7 +26,7 @@ export default function Propietario({ id, nombres, apellidos, tipoPersona, email
                 }
 
             </div>
-            <Link href={`/propietarios/${id}`}>Ver detalles <ArrowRightOutlined /></Link>
+            <Link href={`/propietarios/${id}`} className='link-detail'>Ver detalles <ArrowRightOutlined /></Link>
         </div>
     )
 }

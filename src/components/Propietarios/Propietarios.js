@@ -11,7 +11,7 @@ export default function Propietarios({ id }) {
     const { data, refetch } = useGetPropietariosQuery(id)
     const dispatch = useDispatch()
     return (
-        <div className='flex-column'>
+        <div className='flex-column width-100 bs'>
             {
                 data && <h2>Propietarios</h2>
             }
@@ -25,7 +25,7 @@ export default function Propietarios({ id }) {
             >
                 Agregar propietario <PlusCircleOutlined />
             </button>
-            <div className='flex-row'>
+            <div className='flex-row width-100'>
                 {
                     data && data?.data.propietarios.map((item) => (
                         <Propietario

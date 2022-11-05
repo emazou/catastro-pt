@@ -37,7 +37,7 @@ export default function Terreno({ id }) {
     });
   };
   return (
-    <div className='flex-column'>
+    <div className='flex-column width-100'>
       {
         data?.data?.terrenos.length === 0
           ?
@@ -56,20 +56,20 @@ export default function Terreno({ id }) {
           (
             <>
               <h2>Terreno</h2>
-              <div className='flex-row construccion-container'>
-                <div className='item-construccion'>
+              <div className='flex-row construccion-container width-100 bs'>
+                <div className='item'>
                   <p className='fw'>Tipo de terreno</p>
                   <p>{terreno?.tipoterreno}</p>
                 </div>
-                <div className='item-construccion'>
+                <div className='item'>
                   <p className='fw'>Área</p>
                   <p>{terreno?.area} m<sup>2</sup></p>
                 </div>
-                <div className='item-construccion'>
+                <div className='item'>
                   <p className='fw'>Valor comercial</p>
                   <p>${terreno?.valorcomercial} </p>
                 </div>
-                <div className='item-construccion'>
+                <div className='item'>
                   <p className='fw'>¿Cerca a fuentes de agua?</p>
                   <p>{terreno?.fuentesagua ? 'Si' : 'No'} </p>
                 </div>
@@ -78,13 +78,14 @@ export default function Terreno({ id }) {
                   <p>{terreno?.construcciones ? 'Si' : 'No'}</p>
                 </div>
                 <div className='flex-row'>
-                  <DeleteOutlined key="delete"
-                    onClick={showPromiseConfirm}
-                  />
-                  <EditOutlined key="edit"
-                    style={{ marginLeft: '.5rem' }}
-                    onClick={() => dispatch(editTerrenoOpenModal())}
-                  />
+                  <button className='bton' onClick={showPromiseConfirm}>
+                    <DeleteOutlined key="delete" />
+                  </button>
+                  <button className='bton'onClick={() => dispatch(editTerrenoOpenModal())}>
+                    <EditOutlined key="edit"
+                      style={{ marginLeft: '.5rem' }}
+                    />
+                  </button>
                 </div>
               </div>
             </>

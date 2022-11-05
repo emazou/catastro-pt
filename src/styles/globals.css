@@ -48,6 +48,29 @@ h3 {
   text-align: center;
   background-color: #dff6ff43;
 }
+.hero {
+  background: url('https://i.ibb.co/VJQdL7N/2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.h2-hero {
+  background-color: #dff6ff;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #06283d;
+}
+.calltoaction {
+  background-color: #224e6d;
+  padding: 0.5rem;
+  color: #dff6ff;
+  font-weight: bold;
+  border-radius: 0.3rem;
+}
+.calltoaction:hover {
+  color: #cfe5ee;
+  background-color: #0a3048;
+}
 .predios {
   width: 100%;
   padding: 1rem 0 1rem 0;
@@ -57,7 +80,7 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 1rem;
   background-color: white;
   text-align: start;
@@ -66,7 +89,7 @@ h3 {
 .button {
   background-color: #47b5ff;
   border-radius: 0.3rem;
-  color: #224e6d;
+  color: #0c1e2a;
   font-weight: 500;
   align-self: center;
   border: none;
@@ -106,7 +129,18 @@ h3 {
 .select {
   cursor: pointer;
 }
+.bs {
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+}
+.container-select {
+  background-color: #f5fcff;
+  width: 100%;
+  padding: 1rem;
+  gap: .5rem;
 
+}
 .descriptions {
   display: flex;
   flex-direction: column;
@@ -129,10 +163,13 @@ h3 {
   padding: 1rem;
   border-radius: 0.3rem;
 }
-.item-construccion{
+.item {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  justify-content: space-between;
+}
+.width-100 {
+  width: 100%;
 }
 .propietario-detail {
   display: flex;
@@ -162,6 +199,11 @@ h3 {
 .bton-delete:hover {
   background-color: #633f4a;
   color: #f5e7ec;
+}
+.bton{
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 .fw {
   font-weight: 500;
