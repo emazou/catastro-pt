@@ -50,7 +50,7 @@ export default function EditTerreno(props) {
                 * Valor comercial
                 <input className='input' type='number' value={valorcomercial} onChange={(e) => setValorcomercial(e.target.value)} name='valorcomercial' placeholder='3' required min={1} />
             </label>
-            <button type="submit" className='button'>Agregar construccion</button>
+            <button type="submit" className='button'>Enviar</button>
         </form>
     )
 }

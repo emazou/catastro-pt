@@ -61,14 +61,14 @@ export default function ConstruccionPage() {
                         dispatch(editConstruccionOpenModal())
                     }}
                 >
-                    Editar construccion
+                    Editar construcción
                     <EditOutlined key="edit"
                         style={{ marginLeft: '.5rem' }}
 
                     />
                 </button>
             </div>
-            <Modal title="Formulario de inscripción de construcciones" footer={null} open={isOpenEditConstruccionModal} onCancel={() => dispatch(editConstruccionOpenModal())}>
+            <Modal title="Formulario de edición de construcciones" footer={null} open={isOpenEditConstruccionModal} onCancel={() => dispatch(editConstruccionOpenModal())}>
                 <EditConstruccion fn={() => refetch()} id={id} idpredio={construccion?.idpredio} area={construccion?.area} numeropisos={construccion?.numeropisos} tipoconstruccion={construccion?.tipoconstruccion} direccion={construccion?.direccion} />
             </Modal>
         </div>

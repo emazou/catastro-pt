@@ -49,7 +49,7 @@ export default function NewTerreno({ id, fn }) {
                 * Valor comercial
                 <input className='input' type='number' name='valorcomercial' placeholder='3' required min={1} />
             </label>
-            <button type="submit" className='button'>Agregar construccion</button>
+            <button type="submit" className='button'>Agregar terreno</button>
         </form>
     )
 }
