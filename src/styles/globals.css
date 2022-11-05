@@ -200,6 +200,11 @@ h3 {
   background-color: #633f4a;
   color: #f5e7ec;
 }
+.bton{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .fw {
   font-weight: 500;
 }
