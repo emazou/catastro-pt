@@ -59,7 +59,7 @@ export default function EditConstruccion(props) {
     return (
         <form onSubmit={onFinish} className='form'>
             <select className='select' name='tipoconstruccion' defaultValue={tipoconstruccion} required onChange={(e) => setTipoconstruccion(e.target.value)}>
-                <option disabled value={tipoconstruccion}>Tipo de construccion</option>
+                <option disabled value={tipoconstruccion} selected>Tipo de construccion</option>
                 <option value='Comercial'>Comercial</option>
                 <option value='Industrial'>Industrial</option>
                 <option value='Residencial'>Residencial</option>
