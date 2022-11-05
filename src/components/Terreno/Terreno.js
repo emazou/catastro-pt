@@ -78,13 +78,14 @@ export default function Terreno({ id }) {
                   <p>{terreno?.construcciones ? 'Si' : 'No'}</p>
                 </div>
                 <div className='flex-row'>
-                  <DeleteOutlined key="delete"
-                    onClick={showPromiseConfirm}
-                  />
-                  <EditOutlined key="edit"
-                    style={{ marginLeft: '.5rem' }}
-                    onClick={() => dispatch(editTerrenoOpenModal())}
-                  />
+                  <button className='bton' onClick={showPromiseConfirm}>
+                    <DeleteOutlined key="delete" />
+                  </button>
+                  <button className='bton'onClick={() => dispatch(editTerrenoOpenModal())}>
+                    <EditOutlined key="edit"
+                      style={{ marginLeft: '.5rem' }}
+                    />
+                  </button>
                 </div>
               </div>
             </>
