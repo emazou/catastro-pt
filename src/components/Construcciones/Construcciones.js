@@ -11,7 +11,7 @@ export default function Construcciones({ id }) {
     const isOpenNewConstruccionModal = useSelector((state) => state.modal.isOpenNewConstruccionModal);
     const dispatch = useDispatch();
     return (
-        <div className='flex-column'>
+        <div className='flex-column width-100 bs'>
             {
                 data && <h2>Construcciones</h2>
             }
