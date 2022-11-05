@@ -17,11 +17,11 @@ NEXT_PUBLIC_ADMIN_SECRET= #Llave secreta
 ```
 
 Una vez haya clonado el repositorio en su máquina local y haya configurado las variables de entorno, ejecute el servidor de desarrollo:
-1.
+
 ```bash
 npm install
 ```
-2.
+
 ```bash
 npm run dev
 # o
