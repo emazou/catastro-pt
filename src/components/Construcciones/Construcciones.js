@@ -15,13 +15,7 @@ export default function Construcciones({ id }) {
             {
                 data && <h2>Construcciones</h2>
             }
-            <button
-                type="button"
-                className='button'
-                onClick={() => dispatch(newConstruccionOpenModal())}
-            >
-                Agregar construcción <PlusCircleOutlined />
-            </button>
+
             {
                 (data && data?.data?.construcciones.length === 0)
                     ?
@@ -40,6 +34,13 @@ export default function Construcciones({ id }) {
                         />
                     ))
             }
+            <button
+                type="button"
+                className='button'
+                onClick={() => dispatch(newConstruccionOpenModal())}
+            >
+                Agregar construcción <PlusCircleOutlined />
+            </button>
             <Modal title="Formulario de inscripción de construcciones" footer={null} open={isOpenNewConstruccionModal} onCancel={() => dispatch(newConstruccionOpenModal())}>
                 <NewConstruccion fn={() => refetch()} id={id} />
             </Modal>
