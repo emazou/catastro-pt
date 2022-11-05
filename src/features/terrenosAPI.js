@@ -102,7 +102,7 @@ export const terrenosAPI = createApi({
                 }),
                 headers: { ...headers }
             }),
-            invalidatesTags: ['Terrenos'],
+            invalidatesTags: ['Terrenos']
         }),
         deleteTerreno: builder.mutation({
             query: (id) => ({
