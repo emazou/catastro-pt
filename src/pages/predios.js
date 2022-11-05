@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { newPredioOpenModal } from 'features/modalSlice';
 import { useGetPrediosQuery } from 'features/prediosAPI';
 export default function properties() {
-    const isOpenModal = useSelector((state) => state.modal.isOpenModal)
-    const dispatch = useDispatch()
-    const { data, refetch } = useGetPrediosQuery()
+    const isOpenModal = useSelector((state) => state.modal.isOpenModal);
+    const dispatch = useDispatch();
+    const { data, refetch } = useGetPrediosQuery();
     return (
         <div className='container flex-columns'>
             <button className='button' onClick={() => dispatch(newPredioOpenModal())}>
