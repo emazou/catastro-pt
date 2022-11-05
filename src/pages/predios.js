@@ -15,7 +15,7 @@ export default function properties() {
             <button className='button' onClick={() => dispatch(newPredioOpenModal())}>
                 Agregar predio <PlusCircleOutlined style={{marginleft:'1rem'}} />
             </button>
-            <div className='predios flex-row .bs'>
+            <div className='predios flex-row'>
                 {
                     !data && <div className="ping"></div>
                 }
@@ -34,7 +34,7 @@ export default function properties() {
                     ))
                 }
                 {
-                    data?.data.predios.length === 0 && <p>Ups, no hay predios para ver</p>
+                    data?.data.predios.length === 0 && <p>Ups, no hay predios.</p>
                 }
             </div>
             <Modal title="Formulario de inscripción de predios" footer={null} open={isOpenModal} onCancel={() => dispatch(newPredioOpenModal())}>
