@@ -13,10 +13,9 @@ export default function properties() {
     return (
         <div className='container flex-columns'>
             <button className='button' onClick={() => dispatch(newPredioOpenModal())}>
-                Agregar predio
-                <PlusCircleOutlined />
+                Agregar predio <PlusCircleOutlined style={{marginleft:'1rem'}} />
             </button>
-            <div className='predios flex-row'>
+            <div className='predios flex-row .bs'>
                 {
                     !data && <div className="ping"></div>
                 }

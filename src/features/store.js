@@ -11,7 +11,11 @@ const store = configureStore({
         [construccionesAPI.reducerPath]: construccionesAPI.reducer,
         [terrenosAPI.reducerPath]: terrenosAPI.reducer,
         modal: modalSlice,
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat(construccionesAPI.middleware).concat(prediosAPI.middleware).concat(propietariosAPI.middleware).concat(terrenosAPI.middleware)
 })
 
 export default store
