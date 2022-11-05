@@ -41,9 +41,18 @@ export default function PredioCard({ avaluo, nombre, departamento, municipio, id
                 />,
             ]}
         >
-            <p className='fw'>No.Predial: {noPredial}</p>
-            <p>{municipio} - {departamento}</p>
-            <p>Avalúo: ${avaluo} COP</p>
+            <div className='item'>
+                <p className='fw'>Número predial</p>
+                <p>{noPredial}</p>
+            </div>
+            <div className='item'>
+                <p className='fw'>Avalúo</p>
+                <h4>${avaluo}</h4>
+            </div>
+            <div className='item'>
+                <p>{municipio} - {departamento}</p>
+
+            </div>
         </Card>
     )
 }
