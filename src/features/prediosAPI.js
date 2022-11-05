@@ -49,10 +49,7 @@ export const prediosAPI = createApi({
                       }
                     `
         }),
-        headers: {
-          "content-type": "application/json",
-          "x-hasura-admin-secret": "scqVM0MOceLC8ZWUL7ysDbUKGmHsE48Quhc40KhDVpPROTVKw706UnPTvo3wFIFN"
-        }
+        headers: {...headers}
       }),
       providesTags: ['Predio'],
     }),

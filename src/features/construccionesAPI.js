@@ -8,7 +8,7 @@ export const construccionesAPI = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_URL_API
   }),
-  tagTypes: ['Construcciones', 'Predio'],
+  tagTypes: ['Construcciones'],
   endpoints: (builder) => ({
     getConstrucciones: builder.query({
       query: (id) => ({
@@ -50,8 +50,7 @@ export const construccionesAPI = createApi({
                     `
         }),
         headers: {...headers}
-      }),
-      providesTags: ['Predio'],
+      })
     }),
     addConstruccion: builder.mutation({
       query: (variables) => ({
@@ -119,7 +118,6 @@ export const construccionesAPI = createApi({
         }),
         headers: {...headers}
       }),
-      invalidatesTags: ['Predio'],
     }),
     deleteConstruccion: builder.mutation({
       query: (id) => ({
