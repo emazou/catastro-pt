@@ -1,14 +1,15 @@
-Este es un proyecto de [Next.js](https://nextjs.org/) creado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Cómo empezar
+This is a Next.js frontend application, bootstrapped with create-next-app, leveraging Hasura with GraphQL and PostgreSQL for query handling.
 
-En primer lugar, debe clonar el repositorio en la carpeta que desee:
+## Getting Started
+
+First, clone the repository into your desired directory:
 
 ```bash
 git clone https://github.com/emazou/catastro-pt.git
 
 ```
-Configure las variables de entorno .env.local, tal cual como se ve en el .env.example:
+Set up your .env.local environment variables as shown in .env.example:
 
 ```bash
 NEXT_PUBLIC_URL_API= #URL
@@ -16,7 +17,7 @@ NEXT_PUBLIC_ADMIN_SECRET= #Llave secreta
 
 ```
 
-Una vez haya clonado el repositorio en su máquina local y haya configurado las variables de entorno, ejecute el servidor de desarrollo:
+After cloning the repository to your local machine and configuring the environment variables, start the development server:
 
 ```bash
 npm install
@@ -28,5 +29,5 @@ npm run dev
 yarn dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) en el navegador para ver el resultado.
+Open http://localhost:3000 in your browser to see the application in action.
 
